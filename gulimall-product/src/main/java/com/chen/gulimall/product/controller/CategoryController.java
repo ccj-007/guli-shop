@@ -3,7 +3,7 @@ package com.chen.gulimall.product.controller;
 import java.util.Arrays;
 import java.util.Map;
 
-// import org.apache.shiro.authz.annotation.RequiresPermissions;
+// 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -35,7 +35,7 @@ public class CategoryController {
      * 列表
      */
     @RequestMapping("/list")
-    // @RequiresPermissions("product:category:list")
+    // //("product:category:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = categoryService.queryPage(params);
 
@@ -47,7 +47,7 @@ public class CategoryController {
      * 信息
      */
     @RequestMapping("/info/{catId}")
-    // @RequiresPermissions("product:category:info")
+    // //("product:category:info")
     public R info(@PathVariable("catId") Long catId){
 		CategoryEntity category = categoryService.getById(catId);
 
@@ -58,7 +58,7 @@ public class CategoryController {
      * 保存
      */
     @RequestMapping("/save")
-    // @RequiresPermissions("product:category:save")
+    // //("product:category:save")
     public R save(@RequestBody CategoryEntity category){
 		categoryService.save(category);
 
@@ -69,7 +69,7 @@ public class CategoryController {
      * 修改
      */
     @RequestMapping("/update")
-    // @RequiresPermissions("product:category:update")
+    // //("product:category:update")
     public R update(@RequestBody CategoryEntity category){
 		categoryService.updateById(category);
 
@@ -80,7 +80,7 @@ public class CategoryController {
      * 删除
      */
     @RequestMapping("/delete")
-    // @RequiresPermissions("product:category:delete")
+    // //("product:category:delete")
     public R delete(@RequestBody Long[] catIds){
 		categoryService.removeByIds(Arrays.asList(catIds));
 

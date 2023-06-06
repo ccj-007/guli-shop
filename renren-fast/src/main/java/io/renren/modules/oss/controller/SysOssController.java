@@ -23,7 +23,7 @@ import io.renren.modules.oss.cloud.OSSFactory;
 import io.renren.modules.oss.entity.SysOssEntity;
 import io.renren.modules.oss.service.SysOssService;
 import io.renren.modules.sys.service.SysConfigService;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,7 +51,7 @@ public class SysOssController {
 	 * 列表
 	 */
 	@GetMapping("/list")
-	@RequiresPermissions("sys:oss:all")
+	////("sys:oss:all")
 	public R list(@RequestParam Map<String, Object> params){
 		PageUtils page = sysOssService.queryPage(params);
 
@@ -63,7 +63,7 @@ public class SysOssController {
      * 云存储配置信息
      */
     @GetMapping("/config")
-    @RequiresPermissions("sys:oss:all")
+    ////("sys:oss:all")
     public R config(){
         CloudStorageConfig config = sysConfigService.getConfigObject(KEY, CloudStorageConfig.class);
 
@@ -75,7 +75,7 @@ public class SysOssController {
 	 * 保存云存储配置信息
 	 */
 	@PostMapping("/saveConfig")
-	@RequiresPermissions("sys:oss:all")
+	////("sys:oss:all")
 	public R saveConfig(@RequestBody CloudStorageConfig config){
 		//校验类型
 		ValidatorUtils.validateEntity(config);
@@ -91,7 +91,7 @@ public class SysOssController {
 	 * 上传文件
 	 */
 	@PostMapping("/upload")
-	@RequiresPermissions("sys:oss:all")
+	////("sys:oss:all")
 	public R upload(@RequestParam("file") MultipartFile file) throws Exception {
 		if (file.isEmpty()) {
 			throw new RRException("上传文件不能为空");
@@ -115,7 +115,7 @@ public class SysOssController {
 	 * 删除
 	 */
 	@PostMapping("/delete")
-	@RequiresPermissions("sys:oss:all")
+	////("sys:oss:all")
 	public R delete(@RequestBody Long[] ids){
 		sysOssService.removeByIds(Arrays.asList(ids));
 

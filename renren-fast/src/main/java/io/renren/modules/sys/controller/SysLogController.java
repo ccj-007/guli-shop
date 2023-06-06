@@ -11,7 +11,7 @@ package io.renren.modules.sys.controller;
 import io.renren.common.utils.PageUtils;
 import io.renren.common.utils.R;
 import io.renren.modules.sys.service.SysLogService;
-import org.apache.shiro.authz.annotation.RequiresPermissions;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +38,7 @@ public class SysLogController {
 	 */
 	@ResponseBody
 	@GetMapping("/list")
-	@RequiresPermissions("sys:log:list")
+	////("sys:log:list")
 	public R list(@RequestParam Map<String, Object> params){
 		PageUtils page = sysLogService.queryPage(params);
 
