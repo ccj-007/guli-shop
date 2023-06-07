@@ -4,6 +4,8 @@ import java.util.Arrays;
 import java.util.Map;
 
 
+import com.chen.common.utils.PageUtils;
+import com.chen.common.utils.R;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -13,8 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.chen.gulimall.ware.entity.PurchaseDetailEntity;
 import com.chen.gulimall.ware.service.PurchaseDetailService;
-import com.chen.common.utils.PageUtils;
-import com.chen.common.utils.R;
 
 
 

@@ -15,7 +15,7 @@ io\renren\entity\mongo\MongoDefinition.class
 io\renren\entity\ColumnEntity.class
 io\renren\utils\R.class
 io\renren\utils\RRException.class
-io\renren\RenrenApplication.class
+io\renren\RenrenGeneratorApplication.class
 io\renren\config\MongoConfig.class
 io\renren\utils\DateUtils.class
 io\renren\dao\MongoDBGeneratorDao.class

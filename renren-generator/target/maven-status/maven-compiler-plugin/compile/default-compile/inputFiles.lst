@@ -18,10 +18,10 @@ E:\java-project\guli-shop\renren-generator\src\main\java\io\renren\utils\Query.j
 E:\java-project\guli-shop\renren-generator\src\main\java\io\renren\adaptor\MongoTableInfoAdaptor.java
 E:\java-project\guli-shop\renren-generator\src\main\java\io\renren\entity\mongo\MongoDefinition.java
 E:\java-project\guli-shop\renren-generator\src\main\java\io\renren\dao\PostgreSQLGeneratorDao.java
-E:\java-project\guli-shop\renren-generator\src\main\java\io\renren\RenrenApplication.java
 E:\java-project\guli-shop\renren-generator\src\main\java\io\renren\utils\GenUtils.java
 E:\java-project\guli-shop\renren-generator\src\main\java\io\renren\utils\MongoScanner.java
 E:\java-project\guli-shop\renren-generator\src\main\java\io\renren\config\MongoNullCondition.java
+E:\java-project\guli-shop\renren-generator\src\main\java\io\renren\RenrenGeneratorApplication.java
 E:\java-project\guli-shop\renren-generator\src\main\java\io\renren\utils\RRExceptionHandler.java
 E:\java-project\guli-shop\renren-generator\src\main\java\io\renren\config\MongoCondition.java
 E:\java-project\guli-shop\renren-generator\src\main\java\io\renren\config\MongoConfig.java
