@@ -3,6 +3,7 @@
   <component name="VcsDirectoryMappings">
     <mapping directory="" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/gulimall-coupon" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/gulimall-gateway" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/gulimall-member" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/gulimall-order" vcs="Git" />
     <mapping directory="$PROJECT_DIR$/gulimall-product" vcs="Git" />

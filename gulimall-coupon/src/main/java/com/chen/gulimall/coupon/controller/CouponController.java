@@ -5,6 +5,8 @@ import java.util.Map;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,8 +18,6 @@ import com.chen.gulimall.coupon.service.CouponService;
 import com.chen.common.utils.PageUtils;
 import com.chen.common.utils.R;
 
-
-
 /**
  * 优惠券信息
  *
@@ -25,11 +25,30 @@ import com.chen.common.utils.R;
  * @email 596487930@qq.com
  * @date 2023-06-06 22:25:37
  */
+@RefreshScope
 @RestController
 @RequestMapping("coupon/coupon")
 public class CouponController {
     @Autowired
     private CouponService couponService;
+
+    @Value("${coupon.user.name}")
+    private String name;
+
+    @RequestMapping("/test")
+    public R test() {
+        return R.ok().put("coupons", name);
+    }
+
+    /**
+     * 测试远程调用
+     */
+    @RequestMapping("/test/list")
+    public R couponMembers() {
+        CouponEntity couponEntity = new CouponEntity();
+        couponEntity.setCouponName("618优惠券");
+        return R.ok().put("coupons", Arrays.asList(couponEntity));
+    }
 
     /**
      * 列表
