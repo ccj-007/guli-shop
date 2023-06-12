@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: io.renren.RenrenApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.31 s - in io.renren.RenrenApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.468 s - in io.renren.RenrenApplicationTests

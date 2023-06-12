@@ -16,10 +16,8 @@ import com.chen.gulimall.product.dao.CategoryDao;
 import com.chen.gulimall.product.entity.CategoryEntity;
 import com.chen.gulimall.product.service.CategoryService;
 
-
 @Service("categoryService")
 public class CategoryServiceImpl extends ServiceImpl<CategoryDao, CategoryEntity> implements CategoryService {
-
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
