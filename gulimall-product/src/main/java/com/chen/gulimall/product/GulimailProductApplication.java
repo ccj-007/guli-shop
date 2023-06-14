@@ -9,6 +9,10 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  * 1. 整和mybatis-plus 依赖
  * 2. 配置数据源 application.yml
  * 3. 使用mapperscan找到对应路径的dao
+ *
+ * 一、逻辑删除
+ * 1. 配置全局的逻辑删除规则、 Bean
+ * 2. 加上逻辑删除的注解
  */
 @EnableDiscoveryClient
 @MapperScan("com.chen.gulimall.product.dao")
