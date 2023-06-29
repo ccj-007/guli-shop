@@ -1,10 +1,12 @@
 package com.chen.gulimall.product.controller;
 
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.Map;
 
 // 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -16,6 +18,7 @@ import com.chen.gulimall.product.service.BrandService;
 import com.chen.common.utils.PageUtils;
 import com.chen.common.utils.R;
 
+import javax.validation.Valid;
 
 
 /**
@@ -24,6 +27,15 @@ import com.chen.common.utils.R;
  * @author ccj
  * @email sunlightcs@gmail.com
  * @date 2023-06-04 13:12:35
+ *
+ * jsr303
+ *
+ *
+ * @Valid
+ * @BindingResult
+ * BindingResult
+ *
+ * 4. 统一异常处理
  */
 @RestController
 @RequestMapping("product/brand")
@@ -59,9 +71,18 @@ public class BrandController {
      */
     @RequestMapping("/save")
     // //("product:brand:save")
-    public R save(@RequestBody BrandEntity brand){
-		brandService.save(brand);
-
+    public R save(@Valid @RequestBody BrandEntity brand, BindingResult result){
+        Map<String, String> map = new HashMap<>();
+        if(result.hasErrors()) {
+            result.getFieldErrors().forEach((item) -> {
+                String defaultMessage = item.getDefaultMessage();
+                String field = item.getField();
+                map.put(field, defaultMessage);
+            });
+            return R.error(400, "提交的数据不合法").put("data", map);
+        } else {
+            brandService.save(brand);
+        }
         return R.ok();
     }
 
@@ -72,7 +93,6 @@ public class BrandController {
     // //("product:brand:update")
     public R update(@RequestBody BrandEntity brand){
 		brandService.updateById(brand);
-
         return R.ok();
     }
 
@@ -86,5 +106,4 @@ public class BrandController {
 
         return R.ok();
     }
-
 }
