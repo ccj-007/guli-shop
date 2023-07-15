@@ -66,17 +66,6 @@ public class CategoryController {
     }
 
     /**
-     * 修改
-     */
-    @RequestMapping("/update")
-    // //("product:category:update")
-    public R update(@RequestBody CategoryEntity category){
-		categoryService.updateById(category);
-
-        return R.ok();
-    }
-
-    /**
      * 删除
      * @RequestBody 一定为post请求
      */
@@ -87,6 +76,19 @@ public class CategoryController {
         // 检查当前删除的菜单，是否被别的地方引用
 //		categoryService.removeByIds(Arrays.asList(catIds));
         categoryService.removeMenuByIds(Arrays.asList(catIds));
+        return R.ok();
+    }
+
+    /**
+     * 修改
+     * 级联更新所有数据
+     */
+    @RequestMapping("/update")
+    public R update(@RequestBody CategoryEntity category){
+//		categoryService.updateById(category);
+
+        categoryService.updateCascade(category);
+
         return R.ok();
     }
 }

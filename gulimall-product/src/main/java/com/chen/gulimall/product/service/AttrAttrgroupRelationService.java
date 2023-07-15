@@ -3,7 +3,10 @@ package com.chen.gulimall.product.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.chen.common.utils.PageUtils;
 import com.chen.gulimall.product.entity.AttrAttrgroupRelationEntity;
+import com.chen.gulimall.product.vo.AttrGroupRelationVo;
+import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -16,5 +19,7 @@ import java.util.Map;
 public interface AttrAttrgroupRelationService extends IService<AttrAttrgroupRelationEntity> {
 
     PageUtils queryPage(Map<String, Object> params);
+
+    void addRelation(List<AttrGroupRelationVo> vos);
 }
 
