@@ -9,11 +9,11 @@ package com.chen.gulimall.product.vo;
  * @author bejson.com (i@bejson.com)
  * @website http://www.bejson.com/java2pojo/
  */
-public class Attr {
+public class BaseAttrs {
 
     private int attrId;
-    private String attrName;
-    private String attrValue;
+    private String attrValues;
+    private int showDesc;
     public void setAttrId(int attrId) {
          this.attrId = attrId;
      }
@@ -21,18 +21,18 @@ public class Attr {
          return attrId;
      }
 
-    public void setAttrName(String attrName) {
-         this.attrName = attrName;
+    public void setAttrValues(String attrValues) {
+         this.attrValues = attrValues;
      }
-     public String getAttrName() {
-         return attrName;
+     public String getAttrValues() {
+         return attrValues;
      }
 
-    public void setAttrValue(String attrValue) {
-         this.attrValue = attrValue;
+    public void setShowDesc(int showDesc) {
+         this.showDesc = showDesc;
      }
-     public String getAttrValue() {
-         return attrValue;
+     public int getShowDesc() {
+         return showDesc;
      }
 
 }
