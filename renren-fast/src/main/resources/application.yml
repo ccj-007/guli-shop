@@ -6,7 +6,7 @@ server:
       max: 1000
       min-spare: 30
     connection-timeout: 5000ms
-  port: 8080
+  port: 8081
   servlet:
     context-path: /renren-fast
 
