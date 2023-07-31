@@ -38,11 +38,10 @@ public class SpuInfoController {
     @RequestMapping("/list")
     // //("product:spuinfo:list")
     public R list(@RequestParam Map<String, Object> params){
-        PageUtils page = spuInfoService.queryPage(params);
+        PageUtils page = spuInfoService.queryPageByCondition(params);
 
         return R.ok().put("page", page);
     }
-
 
     /**
      * 信息
@@ -60,9 +59,9 @@ public class SpuInfoController {
      */
     @RequestMapping("/save")
     // //("product:spuinfo:save")
-    public R save(@RequestBody SpuSaveVo spuInfo){
+    public R save(@RequestBody SpuSaveVo vo){
 		// spuInfoService.save(spuInfo);
-
+        spuInfoService.saveSpuInfo(vo);
         return R.ok();
     }
 

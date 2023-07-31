@@ -3,6 +3,7 @@ package com.chen.gulimall.coupon;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.openfeign.EnableFeignClients;
 
 /**
  * 一、如何用nacos配置中心
@@ -37,6 +38,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  *
  * 断言 -》route -》 filter -》 service
  */
+@EnableFeignClients
 @SpringBootApplication
 @EnableDiscoveryClient
 public class GulimallCouponApplication {
