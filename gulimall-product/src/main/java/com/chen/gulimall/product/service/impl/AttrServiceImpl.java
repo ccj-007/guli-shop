@@ -229,6 +229,7 @@ public class AttrServiceImpl extends ServiceImpl<AttrDao, AttrEntity> implements
         return list;
     }
 
+    @Transactional
     @Override
     public void updateSpuAttrs(Long spuId, List<ProductAttrValueEntity> attrValueEntities) {
         for (ProductAttrValueEntity attrValueEntity : attrValueEntities) {
