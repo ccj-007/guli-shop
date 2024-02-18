@@ -5,6 +5,7 @@ import com.chen.common.utils.PageUtils;
 import com.chen.gulimall.product.entity.SkuInfoEntity;
 import com.chen.gulimall.product.vo.SkuItemVo;
 
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ExecutionException;
 
@@ -29,5 +30,7 @@ public interface SkuInfoService extends IService<SkuInfoEntity> {
     void saveSkuInfo(SkuInfoEntity skuInfoEntity);
 
     PageUtils queryPageCondition(Map<String, Object> params);
+
+    List<SkuInfoEntity> getSkusBySpuId(Long spuId);
 }
 

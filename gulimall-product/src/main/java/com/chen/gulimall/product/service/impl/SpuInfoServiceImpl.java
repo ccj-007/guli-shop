@@ -1,5 +1,6 @@
 package com.chen.gulimall.product.service.impl;
 
+import com.chen.common.to.SkuEsModel;
 import com.chen.common.to.SkuReductionTo;
 import com.chen.common.to.SpuBoundTo;
 import com.chen.common.utils.R;
@@ -12,10 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.math.BigDecimal;
-import java.util.Collection;
-import java.util.Date;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
@@ -55,6 +53,12 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
 
     @Autowired
     CouponFeignService couponFeignService;
+
+    @Autowired
+    BrandService brandService;
+
+    @Autowired
+    CategoryService categoryService;
 
     @Override
     public PageUtils queryPage(Map<String, Object> params) {
@@ -205,5 +209,40 @@ public class SpuInfoServiceImpl extends ServiceImpl<SpuInfoDao, SpuInfoEntity> i
         );
 
         return new PageUtils(page);
+    }
+
+    @Override
+    public void up(Long spuId) {
+
+        // 查询spuid所有的sku信息
+        List<SkuInfoEntity> skus = skuInfoService.getSkusBySpuId(spuId);
+
+        // TODO 4. 查询sku的所有可以检索的规则属性
+
+        // 组装需要sku数据
+        List<SkuEsModel> upProducts = skus.stream().map(sku -> {
+            SkuEsModel skuEsModel = new SkuEsModel();
+
+            BeanUtils.copyProperties(sku, skuEsModel);
+
+            skuEsModel.setSkuPrice(sku.getPrice());
+            skuEsModel.setSkuImg(sku.getSkuDefaultImg());
+
+            // TODO 1. 发送远程调用，库存是否有
+
+            // TODO 2. 热度评分
+
+            // TODO 3. 查询品牌和分类名字信息
+            BrandEntity brand = brandService.getById(skuEsModel.getBrandId());
+            skuEsModel.setBrandName(brand.getName());
+            skuEsModel.setBrandImg(brand.getLogo());
+
+            CategoryEntity category = categoryService.getById(skuEsModel.getCatalogId());
+            skuEsModel.setCatalogName(category.getName());
+
+            return skuEsModel;
+        }).collect(Collectors.toList());
+
+        // TODO 5. es 保存数据
     }
 }
